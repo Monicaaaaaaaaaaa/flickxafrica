@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     setIsLoading(true);
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000)); // simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
 
       if (password !== "password123") {
         throw new Error("Incorrect password");
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
       const mockToken = "mock-jwt-token-" + Date.now();
       Cookies.set("flickx_token", mockToken, { path: "/", sameSite: "strict" });
 
-      // Redirect straight to LMS when it's available
+      // Redirect to LMS when it's available
       window.location.replace("https://lms.flickxafrica.com");
     } finally {
       setIsLoading(false);
