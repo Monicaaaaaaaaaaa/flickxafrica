@@ -1,12 +1,7 @@
-import { type ReactNode } from 'react';
+import PropTypes from 'prop-types';
 import { useAuth } from '../../contexts/AuthContext';
 
-interface ProtectedRouteProps {
-  children: ReactNode;
-  fallback?: ReactNode;
-}
-
-export default function ProtectedRoute({ children, fallback }: ProtectedRouteProps) {
+export default function ProtectedRoute({ children, fallback }) {
   const { isAuthenticated, isLoading } = useAuth();
 
   if (isLoading) {
@@ -33,3 +28,12 @@ export default function ProtectedRoute({ children, fallback }: ProtectedRoutePro
 
   return <>{children}</>;
 }
+
+ProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+  fallback: PropTypes.node,
+};
+
+ProtectedRoute.defaultProps = {
+  fallback: null,
+};

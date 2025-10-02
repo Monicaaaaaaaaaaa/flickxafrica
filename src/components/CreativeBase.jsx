@@ -1,3 +1,5 @@
+import africaImage from '../assets/africa image.png';
+
 export default function CreativeBase({ onAuthClick }) {
   return (
     <section id="creative-base" className="py-20 bg-white">
@@ -15,7 +17,7 @@ export default function CreativeBase({ onAuthClick }) {
           <div className="flex flex-col md:flex-row items-start gap-12">
             <div className="md:w-2/5">
               <img 
-                src="/src/assets/africa image.png" 
+                src={africaImage} 
                 alt="The State Of Africa Film Report 2024" 
                 className="w-full h-64 object-cover rounded-2xl shadow-lg"
               />
@@ -42,7 +44,7 @@ export default function CreativeBase({ onAuthClick }) {
           <div className="flex flex-col md:flex-row items-start gap-12">
             <div className="md:w-2/5">
               <img 
-                src="/src/assets/africa image.png" 
+                src={africaImage} 
                 alt="Policy Watch: New Regulations in Nigeria's Creative Sector" 
                 className="w-full h-64 object-cover rounded-2xl shadow-lg"
               />

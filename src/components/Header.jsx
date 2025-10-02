@@ -1,7 +1,6 @@
-import { useAuth } from '../contexts/AuthContext';
+import logo from '../assets/FlickX Africa Transparent 3.png';
 
 export default function Header({ onLoginClick }) {
-  const { isAuthenticated, user, logout } = useAuth();
 
   return (
     <header className="bg-white border-b border-gray-100">
@@ -10,7 +9,7 @@ export default function Header({ onLoginClick }) {
           <div className="flex-shrink-0">
             <a href="/" className="flex items-center">
               <img 
-                src="/FlickX Africa Transparent 3.png" 
+                src={logo} 
                 alt="FlickX Africa" 
                 className="h-10 w-auto"
               />
@@ -42,24 +41,12 @@ export default function Header({ onLoginClick }) {
           </div>
 
           <div className="hidden md:block">
-            {isAuthenticated ? (
-              <div className="flex items-center space-x-4">
-                <span className="text-sm text-gray-700">{user?.name}</span>
-                <button 
-                  onClick={logout}
-                  className="bg-gray-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors"
-                >
-                  Sign Out
-                </button>
-              </div>
-            ) : (
-              <button 
-                onClick={onLoginClick}
-                className="bg-deep-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-sky-blue transition-colors"
-              >
-                Login
-              </button>
-            )}
+            <button 
+              onClick={onLoginClick}
+              className="bg-deep-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-sky-blue transition-colors"
+            >
+              Login
+            </button>
           </div>
 
           <div className="md:hidden">
