@@ -1,21 +1,25 @@
+import thirdPicture from '../assets/3rd-picture.png';
+import fourthPic from '../assets/4th-pic.png';
+import fifthPic from '../assets/5th-pic.png';
+
 export default function Studio() {
   const studioItems = [
     {
-      image: "/src/assets/3rd picture.png",
+      image: thirdPicture,
       subtitle: "Check our Short Movie on Youtube",
       link: "#",
       actionText: "Watch Now",
       youtubeIcon: false
     },
     {
-      image: "/src/assets/4th pic.png",
+      image: fourthPic,
       subtitle: "Check Our Music Video on Youtube",
       link: "#", 
       actionText: "Watch Now",
       youtubeIcon: true
     },
     {
-      image: "/src/assets/5th pic.png",
+      image: fifthPic,
       subtitle: "Check Our Urban Oasis on Youtube",
       link: "#", 
       actionText: "Review",

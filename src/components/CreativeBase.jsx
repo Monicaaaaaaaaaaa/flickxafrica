@@ -1,4 +1,4 @@
-import africaImage from '../assets/africa image.png';
+import africaImage from '../assets/africa-image.png';
 
 export default function CreativeBase({ onAuthClick }) {
   return (

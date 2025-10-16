@@ -1,3 +1,5 @@
+import imaginationBro from '../assets/imagination-bro-1.png';
+
 export default function AboutUs() {
   return (
     <section id="about-us" className="py-20 bg-white">
@@ -12,7 +14,7 @@ export default function AboutUs() {
           <div className="text-center lg:text-left">
             <div className="mb-8">
               <img 
-                src="/src/assets/imagination-bro 1.png" 
+                src={imaginationBro} 
                 alt="Our Vision Illustration" 
                 className="w-80 h-64 mx-auto lg:mx-0 object-contain rounded-lg bg-white p-4"
               />

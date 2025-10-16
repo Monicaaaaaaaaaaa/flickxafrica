@@ -1,3 +1,5 @@
+import logo from '../assets/FlickX-Africa-Transparent-3.png';
+
 export default function Footer() {
   return (
     <footer className="bg-deep-blue text-white py-16">
@@ -6,7 +8,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-8">
               <img 
-                src="/FlickX Africa Transparent 3.png" 
+                src={logo} 
                 alt="FlickX Africa" 
                 className="h-16 w-auto brightness-0 invert"
               />

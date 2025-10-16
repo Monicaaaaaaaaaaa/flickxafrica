@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
 import LoginForm from './auth/LoginForm';
 import SignupForm from './auth/SignupForm';
+import burgundyWallet from '../assets/burgundy-wallet.png';
 
 export default function Fund() {
   const { isAuthenticated } = useAuth();
@@ -31,7 +32,7 @@ export default function Fund() {
         <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="lg:w-2/5">
             <img 
-              src="/src/assets/burgundy wallet.png" 
+              src={burgundyWallet} 
               alt="FlickX Fund - Investment" 
               className="w-full h-64 object-cover rounded-2xl shadow-lg"
             />

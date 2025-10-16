@@ -4,35 +4,39 @@ import { useAuth } from '../contexts/AuthContext';
 import LoginForm from './auth/LoginForm';
 import SignupForm from './auth/SignupForm';
 
+import talent1 from '../assets/talent1.png';
+import talent2 from '../assets/talent2.png';
+
 export default function Talent() {
-  const { isAuthenticated } = useAuth();
+    const { isAuthenticated } = useAuth();
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
   const handleTalentAction = () => {
     if (isAuthenticated) {
-      alert('Redirecting to LMS');
+      // Handle authenticated action, e.g., navigate to a protected route
     } else {
       setShowLogin(true);
     }
   };
+
   const talentMembers = [
     {
-      name: "Kwame Esi",
-      role: "Film Editor",
-      image: "/src/assets/talent1.png",
+      name: "John Doe",
+      role: "Director",
+      image: talent1,
       rating: 5
     },
     {
       name: "Amina",
       role: "Cinematographer",
-      image: "/src/assets/talent2.png",
+      image: talent2,
       rating: 5
     },
     {
       name: "Oshoporu Emmanuel",
       role: "Film Editor",
-      image: "/src/assets/talent1.png",
+      image: talent1,
       rating: 5
     }
   ];

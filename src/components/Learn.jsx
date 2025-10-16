@@ -3,6 +3,11 @@ import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
 import LoginForm from './auth/LoginForm';
 import SignupForm from './auth/SignupForm';
+import firstPicture from '../assets/first-picture.png';
+import secondPicture from '../assets/second-picture.png';
+import thirdPicture from '../assets/3rd-picture.png';
+import fourthPic from '../assets/4th-pic.png';
+import fifthPic from '../assets/5th-pic.png';
 
 export default function Learn() {
   const { isAuthenticated } = useAuth();
@@ -33,7 +38,7 @@ export default function Learn() {
           <div className="flex flex-col lg:flex-row items-start gap-12">
             <div className="lg:w-2/5">
               <img 
-                src="/src/assets/first picture.png" 
+                src={firstPicture} 
                 alt="Introduction to African Cinematography" 
                 className="w-full h-64 object-cover rounded-2xl shadow-lg"
               />
@@ -61,7 +66,7 @@ export default function Learn() {
           <div className="flex flex-col lg:flex-row items-start gap-12">
             <div className="lg:w-2/5">
               <img 
-                src="/src/assets/second picture.png" 
+                src={secondPicture} 
                 alt="Art of Screening" 
                 className="w-full h-64 object-cover rounded-2xl shadow-lg"
               />
@@ -90,11 +95,11 @@ export default function Learn() {
         <div className="mt-24">
           <div className="w-full overflow-x-auto rounded-lg no-scrollbar">
             <div className="flex w-max">
-              <img src="/src/assets/first picture.png" alt="Course preview 1" className="w-80 h-48 object-cover" />
-              <img src="/src/assets/second picture.png" alt="Course preview 2" className="w-80 h-48 object-cover" />
-              <img src="/src/assets/3rd picture.png" alt="Course preview 3" className="w-80 h-48 object-cover" />
-              <img src="/src/assets/4th pic.png" alt="Course preview 4" className="w-80 h-48 object-cover" />
-              <img src="/src/assets/5th pic.png" alt="Course preview 5" className="w-80 h-48 object-cover" />
+              <img src={firstPicture} alt="Course preview 1" className="w-80 h-48 object-cover" />
+              <img src={secondPicture} alt="Course preview 2" className="w-80 h-48 object-cover" />
+              <img src={thirdPicture} alt="Course preview 3" className="w-80 h-48 object-cover" />
+              <img src={fourthPic} alt="Course preview 4" className="w-80 h-48 object-cover" />
+              <img src={fifthPic} alt="Course preview 5" className="w-80 h-48 object-cover" />
             </div>
           </div>
           

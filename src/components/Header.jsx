@@ -1,4 +1,4 @@
-import logo from '../assets/FlickX Africa Transparent 3.png';
+import logo from '../assets/FlickX-Africa-Transparent-3.png';
 
 export default function Header({ onLoginClick }) {
 
