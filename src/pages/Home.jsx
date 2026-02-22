@@ -16,6 +16,12 @@ import worldremitLogo from '../assets/worldremit.png';
 import sterlingLogo from '../assets/sterling.png';
 import donJulioLogo from '../assets/don_julio_logo.svg.png';
 import maggiLogo from '../assets/maggi.png';
+import windImage from '../assets/wind.jpg';
+import trashImage from '../assets/trash.jpg';
+import hydrogenImage from '../assets/hydrogen.jpg';
+import wadeImage from '../assets/wade.png';
+import jennyImage from '../assets/jenny.png';
+import leslieImage from '../assets/leslie.png';
 import '../components/GridStyles.css';
 
 export default function Home() {
@@ -369,9 +375,9 @@ export default function Home() {
 
           <div className="lg:w-1/2 space-y-8">
             {[
-              { id: 1, title: "Wind Power: A Breath of Fresh Air for Clean Energy Enthusiasts", author: "Wade Warren", readTime: "7 min read", image: firstPicture, authorImage: t1 },
-              { id: 2, title: "From Trash to Treasure: The Promising World of Biomass Energy", author: "Jenny Wilson", readTime: "12 min read", image: secondPicture, authorImage: t2 },
-              { id: 3, title: "Hydrogen: Fueling the Green Energy Revolution", author: "Leslie Alexander", readTime: "5 min read", image: thirdPicture, authorImage: t3 }
+              { id: 1, title: "Wind Power: A Breath of Fresh Air for Clean Energy Enthusiasts", author: "Wade Warren", readTime: "7 min read", image: windImage, authorImage: wadeImage },
+              { id: 2, title: "From Trash to Treasure: The Promising World of Biomass Energy", author: "Jenny Wilson", readTime: "12 min read", image: trashImage, authorImage: jennyImage },
+              { id: 3, title: "Hydrogen: Fueling the Green Energy Revolution", author: "Leslie Alexander", readTime: "5 min read", image: hydrogenImage, authorImage: leslieImage }
             ].map((post) => (
               <motion.div
                 key={post.id}

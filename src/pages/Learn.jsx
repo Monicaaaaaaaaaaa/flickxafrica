@@ -8,6 +8,7 @@ import CurvedSection from '../components/CurvedSection';
 import { booksIcon, arrowIcon, handshakeIcon, hatIcon } from '../assets/icons';
 import penImage from '../assets/pen.jpg';
 import instructorImage from '../assets/instructor.jpg';
+import learnImage from '../assets/learn.jpg';
 
 export default function Learn() {
   const [showLogin, setShowLogin] = useState(false);
@@ -73,9 +74,11 @@ export default function Learn() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="relative">
                       <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                        <div className="w-full h-full bg-gradient-to-br from-sky-blue to-deep-blue flex items-center justify-center">
-                          <span className="text-white text-6xl">🎨</span>
-                        </div>
+                        <img 
+                          src={learnImage} 
+                          alt="Learn illustration" 
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                       <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent-yellow rounded-full flex items-center justify-center shadow-lg">
                         <span className="text-2xl">📚</span>
