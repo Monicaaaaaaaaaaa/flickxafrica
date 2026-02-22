@@ -4,6 +4,11 @@ import Footer from '../components/Footer';
 import { ArrowRight, Camera, Lightbulb, Film, Scissors, Palette, Globe, CheckCircle } from 'lucide-react';
 import studioImage from '../assets/studio.jpg';
 import whattoexpectImage from '../assets/whattoexpect.jpg';
+import filmProductionImage from '../assets/film-production.jpg';
+import futureImage from '../assets/future.jpg';
+import bgImgImage from '../assets/bgImg.jpg';
+import hydrogenImage from '../assets/hydrogen.jpg';
+import windImage from '../assets/wind.jpg';
 
 export default function Studio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -153,7 +158,7 @@ export default function Studio() {
                 <div className="pt-6">
                   <div className="overflow-hidden rounded-xl mx-auto" style={{width: '324px', height: '256px'}}>
                     <img 
-                      src={whattoexpectImage} 
+                      src={filmProductionImage} 
                       alt="Film & Video Production" 
                       className="w-full h-full object-cover"
                     />
@@ -171,7 +176,7 @@ export default function Studio() {
                 <div className="pt-6">
                   <div className="overflow-hidden rounded-xl mx-auto" style={{width: '324px', height: '256px'}}>
                     <img 
-                      src={whattoexpectImage} 
+                      src={futureImage} 
                       alt="Creative Strategy" 
                       className="w-full h-full object-cover"
                     />
@@ -189,7 +194,7 @@ export default function Studio() {
                 <div className="pt-6">
                   <div className="overflow-hidden rounded-xl mx-auto" style={{width: '324px', height: '256px'}}>
                     <img 
-                      src={whattoexpectImage} 
+                      src={bgImgImage} 
                       alt="Studio Shoots" 
                       className="w-full h-full object-cover"
                     />
@@ -207,7 +212,7 @@ export default function Studio() {
                 <div className="pt-6">
                   <div className="overflow-hidden rounded-xl mx-auto" style={{width: '324px', height: '256px'}}>
                     <img 
-                      src={whattoexpectImage} 
+                      src={hydrogenImage} 
                       alt="Post-Production" 
                       className="w-full h-full object-cover"
                     />
@@ -225,7 +230,7 @@ export default function Studio() {
                 <div className="pt-6">
                   <div className="overflow-hidden rounded-xl mx-auto" style={{width: '324px', height: '256px'}}>
                     <img 
-                      src={whattoexpectImage} 
+                      src={windImage} 
                       alt="Creative Direction" 
                       className="w-full h-full object-cover"
                     />

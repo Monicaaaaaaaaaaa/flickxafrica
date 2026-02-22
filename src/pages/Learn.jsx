@@ -20,7 +20,6 @@ export default function Learn() {
   
   const images = [penImage, paceImage, portfolioImage, certifiedImage];
 
-  // Auto-rotate images every 2 seconds
   useEffect(() => {
     console.log('Setting up interval, current index:', currentImageIndex);
     const interval = setInterval(() => {
@@ -78,7 +77,10 @@ export default function Learn() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>
-                  <button className="bg-white hover:bg-gray-50 text-deep-blue border-2 border-deep-blue px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200">
+                  <button 
+                    onClick={handleShowLogin}
+                    className="bg-white hover:bg-gray-50 text-deep-blue border-2 border-deep-blue px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200"
+                  >
                     Login
                   </button>
                 </div>
@@ -258,7 +260,7 @@ export default function Learn() {
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Featured Courses</h2>
             </motion.div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
                   title: "Atomic Habits",
@@ -290,12 +292,7 @@ export default function Learn() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 p-6 flex flex-col"
-                  style={{ 
-                    width: '371.5px', 
-                    height: '341px',
-                    border: '1px solid #e5e7eb'
-                  }}
+                  className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 p-6 flex flex-col w-full"
                 >
                   <div className="flex justify-center mb-3">
                     <div className="rounded-full overflow-hidden border-2 border-gray-200" style={{ width: '170px', height: '170px' }}>
@@ -358,7 +355,7 @@ export default function Learn() {
                 }}></div>
               </div>
               
-              <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -382,7 +379,7 @@ export default function Learn() {
                   className="relative"
                 >
                   <div className="relative">
-                    <div className="w-80 h-80 mx-auto bg-sky-blue rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 relative">
+                    <div className="w-64 h-64 sm:w-80 sm:h-80 mx-auto bg-sky-blue rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 relative">
                       <div className="absolute top-16 left-1/2 transform -translate-x-1/2">
                         <div className="w-24 h-24 relative blur-md">
                           <div className="absolute inset-0 bg-yellow-400 rounded-full blur-xl opacity-60 animate-pulse"></div>
