@@ -28,6 +28,7 @@ module.exports = {
         'light-blue': '#3b82f6',
         'charcoal': '#2D3748',
         'soft-white': '#F8FAFC',
+        'accent-yellow': '#F59E0B',
       },
     },
   },

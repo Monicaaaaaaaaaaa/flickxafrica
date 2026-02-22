@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import Header from '../components/Header';
-import Home from './Home';
 import Footer from '../components/Footer';
 import LoginForm from '../components/auth/LoginForm';
 import SignupForm from '../components/auth/SignupForm';
 
-export default function Landing() {
+export default function Lab() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
 
@@ -25,9 +24,12 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-soft-white">
       <Header onLoginClick={handleShowLogin} />
-      <Home />
+      
+      <main className="pt-20">
+      </main>
+
       <Footer />
 
       {showLogin && (

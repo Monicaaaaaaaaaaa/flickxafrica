@@ -5,11 +5,21 @@ import { z } from 'zod';
 import { useAuth } from '../../contexts/AuthContext';
 import LoadingSpinner from '../ui/LoadingSpinner';
 
+const ROLES = {
+  LEARNER: 'learner',
+  FACILITATOR: 'facilitator',
+  MENTOR: 'mentor',
+  TALENT_SCOUT: 'talent_scout'
+};
+
 const signupSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
   password: z.string().min(6, 'Password must be at least 6 characters'),
   confirmPassword: z.string(),
+  role: z.enum([ROLES.LEARNER, ROLES.FACILITATOR, ROLES.MENTOR, ROLES.TALENT_SCOUT], {
+    required_error: 'Please select a role',
+  }),
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwords don't match",
   path: ["confirmPassword"],
@@ -35,10 +45,10 @@ export default function SignupForm({ onSwitchToLogin, onClose }) {
     setError(null);
     
     try {
-      await signup(data.name, data.email, data.password);
+      await signup(data.name, data.email, data.password, data.role);
       onClose();
     } catch (err) {
-      setError('Failed to create account. Please try again.');
+      setError(err.message || 'Failed to create account. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -129,6 +139,27 @@ export default function SignupForm({ onSwitchToLogin, onClose }) {
             />
             {errors.confirmPassword && (
               <p className="mt-1 text-sm text-red-600">{errors.confirmPassword.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-2">
+              I am a...
+            </label>
+            <select
+              {...register('role')}
+              id="role"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-blue focus:border-transparent transition-colors bg-white"
+              defaultValue=""
+            >
+              <option value="" disabled>Select your role</option>
+              <option value={ROLES.LEARNER}>Learner - I want to take courses</option>
+              <option value={ROLES.FACILITATOR}>Facilitator - I want to teach courses</option>
+              <option value={ROLES.MENTOR}>Mentor - I want to guide learners</option>
+              <option value={ROLES.TALENT_SCOUT}>Talent Scout - I'm looking for talent</option>
+            </select>
+            {errors.role && (
+              <p className="mt-1 text-sm text-red-600">{errors.role.message}</p>
             )}
           </div>
 
