@@ -7,6 +7,8 @@ import SignupForm from '../components/auth/SignupForm';
 import CurvedSection from '../components/CurvedSection';
 import blackguy from '../assets/blackguy.jpg';
 import penImage from '../assets/pen.jpg';
+import careerImage from '../assets/career.jpg';
+import creativeImage from '../assets/creative.jpg';
 import fifaLogo from '../assets/fifa.png';
 import worldremitLogo from '../assets/worldremit.png';
 import sterlingLogo from '../assets/sterling.png';
@@ -138,9 +140,9 @@ export default function Talent() {
               <div>
                 <div className="space-y-8">
                   {[
-                    { title: "Create Your Profile", description: "Develop your portfolio, add your experience, and showcase your work." },
-                    { title: "Get Discovered", description: "Our algorithm matches you with relevant roles, and companies can find you." },
-                    { title: "Land the Gig", description: "Apply directly, negotiate your rate, and get hired for projects that match your skills." }
+                    { title: "Create Your Profile", description: "Showcase your portfolio, skills, and experience. Let your work speak for you." },
+                    { title: "Get Discovered", description: "Receive invitations from companies and creators looking for your exact skillset." },
+                    { title: "Land the Gig", description: "Apply directly, negotiate terms, and get hired for projects that match your vision." }
                   ].map((item, index) => (
                     <div key={index} className="relative">
                       <div className="flex items-start gap-4">
@@ -187,7 +189,7 @@ export default function Talent() {
                 <div className="pt-6">
                   <div className="overflow-hidden rounded-xl mx-auto" style={{width: '324px', height: '256px'}}>
                     <img 
-                      src={whattoexpectImage} 
+                      src={careerImage} 
                       alt="Career Growth" 
                       className="w-full h-full object-cover"
                     />
@@ -205,7 +207,7 @@ export default function Talent() {
                 <div className="pt-6">
                   <div className="overflow-hidden rounded-xl mx-auto" style={{width: '324px', height: '256px'}}>
                     <img 
-                      src={whattoexpectImage} 
+                      src={creativeImage} 
                       alt="Creative Community" 
                       className="w-full h-full object-cover"
                     />

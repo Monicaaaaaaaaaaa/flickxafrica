@@ -6,6 +6,9 @@ import LoginForm from '../components/auth/LoginForm';
 import SignupForm from '../components/auth/SignupForm';
 import { ArrowRight, CheckCircle, TrendingUp, Users, DollarSign, Award } from 'lucide-react';
 import penImage from '../assets/pen.jpg';
+import marketImage from '../assets/market.jpg';
+import sahelImage from '../assets/sahel.jpg';
+import techImage from '../assets/tech.jpg';
 import '../components/GridStyles.css';
 
 export default function Fund() {
@@ -169,7 +172,7 @@ export default function Fund() {
               <div>
                 <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">What We Look For</h2>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  We believe in finding the best way to create impactful storytelling, partnering with you to deeply understand your goals and challenges.
+                  We believe that the best way to create successful marketing campaigns is to work closely with our clients to understand their goals and challenges.
                 </p>
                 <div className="w-[484px] h-[401px] rounded-2xl overflow-hidden">
                   <img 
@@ -183,8 +186,8 @@ export default function Fund() {
               <div>
                 <div className="space-y-8">
                   {[
-                    { title: "Strong Story", description: "A compelling narrative that resonates with a wide audience, authentic voice and unique vision." },
-                    { title: "Talented Team", description: "Experienced and passionate creators with a proven track record or clear potential for excellence." },
+                    { title: "Strong Story", description: "Compelling narratives that resonate with African and global audiences. Authentic voices telling unique stories." },
+                    { title: "Talented Team", description: "Experienced or promising creators with track record or clear potential for excellence." },
                     { title: "Market Potential", description: "Clear audience, distribution strategy, and path to commercial success or meaningful impact." }
                   ].map((item, index) => (
                     <div key={index} className="relative">
@@ -212,10 +215,67 @@ export default function Fund() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center"
+              className="text-center mb-12"
             >
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">Funded Projects</h2>
             </motion.div>
+            
+            <div className="space-y-8 max-w-6xl mx-auto">
+              {[
+                {
+                  type: "Feature Film",
+                  title: "The Market Woman's Daughter",
+                  description: "A drama following three generations of women navigating love, ambition, and tradition in modern Lagos. Premiered at FESPACO 2025.",
+                  funding: "N35 Million",
+                  image: marketImage
+                },
+                {
+                  type: "Documentary",
+                  title: "Sounds of the Sahel",
+                  description: "An intimate look at how musicians in Mali, Niger, and Burkina Faso are preserving traditional music while embracing modern sounds.",
+                  funding: "N8 Million",
+                  image: sahelImage
+                },
+                {
+                  type: "Web Series",
+                  title: "Tech Bros",
+                  description: "A comedy series about four friends trying to build the next big startup in Lagos's chaotic tech ecosystem. Now streaming on Showmax.",
+                  funding: "N15 Million",
+                  image: techImage
+                }
+              ].map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-white rounded-xl shadow-sm overflow-hidden"
+                >
+                  <div className="flex flex-col md:flex-row">
+                    <div className="w-full md:w-1/3 h-48 md:h-auto">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover rounded-xl"
+                        style={{ width: '300px', height: '200px' }}
+                      />
+                    </div>
+                    <div className="flex-1 p-6 md:p-8">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="inline-block px-3 py-1 text-white text-sm font-medium rounded" style={{ backgroundColor: '#0057A0' }}>
+                          {project.type}
+                        </span>
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
+                      <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+                      <div className="font-semibold text-lg" style={{ color: '#0057A0' }}>
+                        Funded: {project.funding}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
       </main>

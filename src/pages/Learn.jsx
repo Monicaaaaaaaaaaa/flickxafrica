@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import LoginForm from '../components/auth/LoginForm';
@@ -9,10 +9,30 @@ import { booksIcon, arrowIcon, handshakeIcon, hatIcon } from '../assets/icons';
 import penImage from '../assets/pen.jpg';
 import instructorImage from '../assets/instructor.jpg';
 import learnImage from '../assets/learn.jpg';
+import paceImage from '../assets/pace.jpg';
+import portfolioImage from '../assets/portfolio.jpg';
+import certifiedImage from '../assets/certified.jpg';
 
 export default function Learn() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const images = [penImage, paceImage, portfolioImage, certifiedImage];
+
+  // Auto-rotate images every 2 seconds
+  useEffect(() => {
+    console.log('Setting up interval, current index:', currentImageIndex);
+    const interval = setInterval(() => {
+      console.log('Interval fired, changing image');
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000);
+    
+    return () => {
+      console.log('Cleaning up interval');
+      clearInterval(interval);
+    };
+  }, []);
 
   const handleShowLogin = () => {
     setShowLogin(true);
@@ -180,12 +200,19 @@ export default function Learn() {
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   We believe that the best way to create successful marketing campaigns is to work closely with our clients to understand their goals and challenges.
                 </p>
-                <div className="w-[484px] h-[401px] rounded-2xl overflow-hidden">
-                  <img 
-                    src={penImage} 
-                    alt="Person writing with pen on paper" 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-[484px] h-[401px] rounded-2xl overflow-hidden relative">
+                  <AnimatePresence mode="wait">
+                    <motion.img 
+                      src={images[currentImageIndex]} 
+                      alt="Learning process" 
+                      className="w-full h-full object-cover absolute inset-0"
+                      key={currentImageIndex}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                  </AnimatePresence>
                 </div>
               </motion.div>
               
