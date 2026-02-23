@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import LoginForm from '../components/auth/LoginForm';
 import { ArrowRight, Camera, Lightbulb, Film, Scissors, Palette, Globe, CheckCircle } from 'lucide-react';
 import studioImage from '../assets/studio.jpg';
 import whattoexpectImage from '../assets/whattoexpect.jpg';
@@ -12,6 +13,15 @@ import windImage from '../assets/wind.jpg';
 
 export default function Studio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleShowLogin = () => {
+    setShowLogin(true);
+  };
+
+  const handleCloseLogin = () => {
+    setShowLogin(false);
+  };
 
   const services = [
     {
@@ -111,13 +121,19 @@ export default function Studio() {
                 Craft-first storytelling for brands and creators who value depth over gimmicks. Stories that resonate in Lagos, London, Nairobi—anywhere in the world.
               </p>
               <div className="flex gap-4">
-                <button className="bg-deep-blue hover:bg-sky-blue text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center">
+                <button 
+                  onClick={handleShowLogin}
+                  className="bg-deep-blue hover:bg-sky-blue text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center"
+                >
                   Learn More
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
-                <button className="bg-white border-2 border-deep-blue text-deep-blue hover:bg-gray-50 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                <button 
+                  onClick={handleShowLogin}
+                  className="bg-white border-2 border-deep-blue text-deep-blue hover:bg-gray-50 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                >
                   Contact Us
                 </button>
               </div>
@@ -339,6 +355,12 @@ export default function Studio() {
       </main>
 
       <Footer />
+
+      {showLogin && (
+        <LoginForm
+          onClose={handleCloseLogin}
+        />
+      )}
     </div>
   );
 }
