@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  # Frontend service
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - VITE_API_BASE_URL=http://localhost:3001/api
+      - VITE_GA_TRACKING_ID=${GA_TRACKING_ID}
+      - VITE_ENABLE_ANALYTICS=true
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - flickx-network
+
+  # Backend service (placeholder - you'll replace this with your actual backend)
+  backend:
+    image: node:18-alpine
+    working_dir: /app
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: npm start
+    restart: unless-stopped
+    networks:
+      - flickx-network
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    networks:
+      - flickx-network
+
+  # Nginx reverse proxy (optional, for production)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.prod.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+    restart: unless-stopped
+    networks:
+      - flickx-network
+
+volumes:
+  redis_data:
+
+networks:
+  flickx-network:
+    driver: bridge

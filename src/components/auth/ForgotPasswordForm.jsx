@@ -22,18 +22,14 @@ export default function ForgotPasswordForm({ onBackToLogin, onClose }) {
   });
 
   const generateResetToken = (email) => {
-    // Generate a simple token (in production, use crypto library)
     return btoa(`${email}:${Date.now()}`).replace(/[^a-zA-Z0-9]/g, '').substring(0, 32);
   };
 
   const sendResetEmail = async (email, token) => {
-    // In a real app, this would call your email service API
-    // For demo, we'll simulate sending an email
-    
-    // Create reset link
+
     const resetLink = `${window.location.origin}/reset-password?token=${token}&email=${encodeURIComponent(email)}`;
     
-    // Mock email service
+
     console.log('=== PASSWORD RESET EMAIL ===');
     console.log('To:', email);
     console.log('Subject: Reset Your FlickX Africa Password');
@@ -44,7 +40,6 @@ export default function ForgotPasswordForm({ onBackToLogin, onClose }) {
     console.log(`This link will expire in 1 hour.`);
     console.log('==========================');
     
-    // Simulate email sending delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     return { success: true, resetLink };
@@ -55,10 +50,8 @@ export default function ForgotPasswordForm({ onBackToLogin, onClose }) {
     setError(null);
     
     try {
-      // Generate reset token
       const token = generateResetToken(data.email);
-      
-      // Send reset email
+
       await sendResetEmail(data.email, token);
        
       setIsSubmitted(true);

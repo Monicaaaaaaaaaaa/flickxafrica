@@ -50,8 +50,7 @@ function App() {
           <Route element={<PrivateRoute />}>
             <Route path="/lms" element={<LMS />} />
           </Route>
-          
-          {/* Password reset routes */}
+  
           <Route path="/reset-password" element={<ResetPasswordForm />} />
           
           <Route path="*" element={<Navigate to="/" replace />} />

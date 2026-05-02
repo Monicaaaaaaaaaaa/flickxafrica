@@ -79,8 +79,7 @@ export default function Fund() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
-                
-                {/* Small blue gradient ball */}
+
                 <div className="absolute -bottom-4 right-8 w-16 h-16 bg-gradient-to-br from-sky-blue to-deep-blue rounded-full shadow-lg animate-bounce"></div>
               </motion.div>
             </div>
